@@ -34,3 +34,6 @@ Route::get('/test','HimanshuController@index')->name('user.register');
 
 
 Route::get('/table','HimanshuController@table');
+
+
+Route::get('/users','UserController@index')->name('users.index');
