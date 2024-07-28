@@ -7,8 +7,7 @@ use App\User;
 class UserController extends Controller
 {
     public function index(){
-        $users=user::all();
-        dd($users);
-      return view ('users',compact('users'));
+        $users = user::all();
+      return view ('user',compact('users'));
     }
 }
