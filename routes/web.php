@@ -29,11 +29,10 @@ Route::get('/fdfhgj', function () {
 
 })->name('user.register');
 
-
 Route::get('/test','HimanshuController@index')->name('user.register');
-
 
 Route::get('/table','HimanshuController@table');
 
-
-Route::get('/users','UserController@index')->name('user.index');
+Route::get('/users','UserController@index')->name('users.index');
+Route::get('/users/create','UserController@create')->name('users.create');
+Route::posth('/users/store','UserController@store')->name('users.store');
