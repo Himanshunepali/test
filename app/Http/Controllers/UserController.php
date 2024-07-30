@@ -27,4 +27,55 @@ class UserController extends Controller
      
     
 }
+public function delete($id){
+    if(!$id){
+        return redirect()-back();
+    }
+    
+
+    $user = User::find($id);
+    if($user){
+        $user->delete();
+    }
+        return redirect()->back();
+}
+
+
+public function edit($id){
+    if(!$id){
+        return redirect()-back();
+    }
+    
+
+    $user = User::find($id);
+    if($user){
+        return view ('users.edit',compact('user'));
+    }
+    return redirect()-back();
+    }
+
+    public function update(Request $request, $id){
+        if(!$id){
+            return redirect()-back();
+        }
+        $user = User::find($id);
+        if($user){
+
+            $data = [
+                'name'=> $request->get('name'),
+                'email'=> $request->get('email'),
+                'password'=> $request->get('password')
+               ];
+       
+               User::where('id',$id)->update($data);
+               return redirect()->route('users.index');
+
+        }
+
+        
+
+        return redirect()-back();
+    
+}
+  
 }

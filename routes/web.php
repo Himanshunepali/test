@@ -35,4 +35,8 @@ Route::get('/table','HimanshuController@table');
 
 Route::get('/users','UserController@index')->name('users.index');
 Route::get('/users/create','UserController@create')->name('users.create');
-Route::posth('/users/store','UserController@store')->name('users.store');
+Route::post('/users/store','UserController@store')->name('users.store');
+Route::get('/users/delete/{id}','UserController@delete')->name('users.delete');
+Route::get('/users/edit/{id}','UserController@edit')->name('users.edit');
+Route::post('/users/update/{id}','UserController@update')->name('users.update');
+
