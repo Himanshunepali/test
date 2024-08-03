@@ -11,28 +11,31 @@
     
 
  <table border=5 class='table'>
- <a href='{{ route("users.create") }}' button class="btn btn secondary">Create New</button></a>
+ <a href='{{ route("users.create") }}'class="btn btn-outline-primary">Create New</button></a>
 
 <thead>
     <tr>
         <th>S.N</th>
         <th>Name</th>
         <th>Email</th>
+        <th>Image</th>
         <th>Action</th>
     </tr>
 </thead>
 
 <tbody>
-    @foreach($users as $user)
+    @forelse($users as $user)
     <tr>
         <td>{{$loop->iteration}}</td>
         <td>{{$user->name }}</td>
         <td>{{$user->email }}</td>
-        <td><a href="{{ route('users.edit', $user->id)}}" class="btn btn-secondary">Edit</a></td>
-        <td><a href="{{ route('users.delete', $user->id)}}" class="btn btn-danger">Delete</a></td>
+        <td><a href=" {{ asset('uploads').'/'.$user->image}}" target='_blank'> <img src="{{ asset('uploads').'/'.$user->image}}" width=='50' height='50' alt=""></a></td>
+        <td><a href="{{ route('users.edit', $user->id)}}" class="btn btn-secondary" class="btn btn-outline-primary">Edit</a></td>
+        <td><a href="{{ route('users.delete', $user->id)}}" class="btn btn-danger" class="btn btn-outline-primary">Delete</a></td>
     </tr>
-    </tr>
-    @endforeach
+    @empty
+    <td>No Data</td>
+    @endforelse
 </tbody>
  </table>
     

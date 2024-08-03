@@ -40,3 +40,4 @@ Route::get('/users/delete/{id}','UserController@delete')->name('users.delete');
 Route::get('/users/edit/{id}','UserController@edit')->name('users.edit');
 Route::post('/users/update/{id}','UserController@update')->name('users.update');
 
+

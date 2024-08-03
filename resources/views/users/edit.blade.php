@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <form action='{{ route("users.update", $user->id) }}' method='POST'>
+    <form action='{{ route("users.update", $user->id) }}' method='POST' enctype="multipart/form-data">
       @csrf
     <div class="mb-3">
   <label for="exampleInputEmail1" class="form-label">Name</label>
@@ -21,8 +21,15 @@
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Password</label>
     <input type="password" class="form-control" id="" name='password' value='{{ $user->password}}'>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+ </div>
+ <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Image</label>
+    <input type="file" class="form-control" id="" name='image' value='{{$user->image}}'>
+</div>
+@If ($user->image)
+<img src="{{ asset('uploads').'/'.$user->image}}" width=='50' height='50' alt="">
+  @endif
+<button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
 </body>
